@@ -20,21 +20,21 @@ from app.utils.system import SystemUtils
 ffmpeg_lock = threading.Lock()
 
 
-class FFmpegThumb(_PluginBase):
+class FFmpegThumbGPU(_PluginBase):
     # 插件名称
-    plugin_name = "FFmpeg缩略图"
+    plugin_name = "FFmpeg缩略图支持GPU"
     # 插件描述
     plugin_desc = "TheMovieDb没有背景图片时使用FFmpeg截取视频文件缩略图。"
     # 插件图标
     plugin_icon = "ffmpeg.png"
     # 插件版本
-    plugin_version = "1.2"
+    plugin_version = "1.0"
     # 插件作者
-    plugin_author = "jxxghp"
+    plugin_author = "NevermoreN"
     # 作者主页
-    author_url = "https://github.com/jxxghp"
+    author_url = "https://github.com/NevermoreN"
     # 插件配置项ID前缀
-    plugin_config_prefix = "ffmpegthumb_"
+    plugin_config_prefix = "ffmpegthumbgpu_"
     # 加载顺序
     plugin_order = 31
     # 可使用的用户级别
