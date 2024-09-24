@@ -8,7 +8,8 @@
         "author": "NevermoreN",
         "level": 1,
         "history": {
-            "v1.1": "修复bug"
+            "v1.1": "修复bug",
+            "v1.2": "自己检查是拥有ffpmeg"
         }
     }
 }
