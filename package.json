@@ -7,7 +7,8 @@
         "icon": "ffmpeg.png",
         "author": "NevermoreN",
         "level": 1
-         "history": {
+        "v2": flase,
+        "history": {
             "v1.1": "修复bug"
          }
     }
