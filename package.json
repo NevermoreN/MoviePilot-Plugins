@@ -7,5 +7,6 @@
         "icon": "ffmpeg.png",
         "author": "NevermoreN",
         "level": 1,
+        "v2": true
     }
 }
