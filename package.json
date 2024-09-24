@@ -1,18 +1,12 @@
 {
     "FFmpegThumbGPU": {
         "name": "FFmpeg缩略图支持GPU",
-        "description": "TheMovieDb没有背景图片时使用FFmpeg截取视频文件缩略图。",
+        "description": "TheMovieDb没有背景图片时使用FFmpeg截取视频文件缩略图",
         "labels": "刮削",
         "version": "1.4",
         "icon": "ffmpeg.png",
         "author": "NevermoreN",
-        "level": 1,
-        "v2": flase,
-        "history": {
-            "v1.1": "修复bug",
-            "v1.2": "自己检查是拥有ffpmeg",
-            "v1.3": "修复bug",
-            "v1.4": "修复bug"
-        }
+        "level": 1
     }
+
 }
