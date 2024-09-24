@@ -6,10 +6,9 @@
         "version": "1.5",
         "icon": "ffmpeg.png",
         "author": "NevermoreN",
-        "level": 1
+        "level": 1,
         "history": {
-         "v1.5": "支持馒头新架构自动签到"
+            "v1.5": "支持馒头新架构自动签到"
+        }
     }
-    }
-
 }
