@@ -3,11 +3,9 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from threading import Event as ThreadEvent
 from typing import List, Tuple, Dict, Any
-
 import pytz
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
-
 from app.core.config import settings
 from app.core.event import eventmanager, Event
 from app.log import logger
@@ -16,10 +14,7 @@ from app.plugins.ffmpegthumb.ffmpeg_helper import FfmpegHelper
 from app.schemas import TransferInfo
 from app.schemas.types import EventType
 from app.utils.system import SystemUtils
-
 ffmpeg_lock = threading.Lock()
-
-
 class FFmpegThumbGPU(_PluginBase):
     # 插件名称
     plugin_name = "FFmpeg缩略图支持GPU"
@@ -39,7 +34,6 @@ class FFmpegThumbGPU(_PluginBase):
     plugin_order = 31
     # 可使用的用户级别
     user_level = 1
-
     # 私有属性
     _scheduler = None
     _enabled = False
@@ -50,7 +44,6 @@ class FFmpegThumbGPU(_PluginBase):
     _exclude_paths = ""
     # 退出事件
     _event = ThreadEvent()
-
     def init_plugin(self, config: dict = None):
         # 读取配置
         if config:
@@ -60,10 +53,8 @@ class FFmpegThumbGPU(_PluginBase):
             self._timeline = config.get("timeline")
             self._scan_paths = config.get("scan_paths") or ""
             self._exclude_paths = config.get("exclude_paths") or ""
-
         # 停止现有任务
         self.stop_service()
-
         # 启动定时任务 & 立即运行一次
         if self._enabled or self._onlyonce:
             self._scheduler = BackgroundScheduler(timezone=settings.TZ)
@@ -95,17 +86,13 @@ class FFmpegThumbGPU(_PluginBase):
                 # 启动服务
                 self._scheduler.print_jobs()
                 self._scheduler.start()
-
     def get_state(self) -> bool:
         return self._enabled
-
     @staticmethod
     def get_command() -> List[Dict[str, Any]]:
         pass
-
     def get_api(self) -> List[Dict[str, Any]]:
         pass
-
     def get_form(self) -> Tuple[List[dict], Dict[str, Any]]:
         return [
             {
@@ -261,10 +248,8 @@ class FFmpegThumbGPU(_PluginBase):
             "scan_paths": "",
             "err_hosts": ""
         }
-
     def get_page(self) -> List[dict]:
         pass
-
     @eventmanager.register(EventType.TransferComplete)
     def scan_rt(self, event: Event):
         """
@@ -287,7 +272,6 @@ class FFmpegThumbGPU(_PluginBase):
                 logger.warn(f"{file_path} 不是支持的视频文件")
                 continue
             self.gen_file_thumb(file_path)
-
     def __libraryscan(self):
         """
         开始扫描媒体库
@@ -326,7 +310,6 @@ class FFmpegThumbGPU(_PluginBase):
                 # 开始处理文件
                 self.gen_file_thumb(file_path)
             logger.info(f"目录 {path} 扫描完成")
-
     def gen_file_thumb(self, file_path: Path):
         """
         处理一个文件
@@ -343,7 +326,6 @@ class FFmpegThumbGPU(_PluginBase):
                     logger.info(f"{file_path} 缩略图已生成：{thumb_path}")
             except Exception as err:
                 logger.error(f"FFmpeg处理文件 {file_path} 时发生错误：{str(err)}")
-
     def stop_service(self):
         """
         退出插件
