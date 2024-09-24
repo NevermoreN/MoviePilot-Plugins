@@ -19,9 +19,10 @@ from app.utils.system import SystemUtils
 
 ffmpeg_lock = threading.Lock()
 
-class FFmpegThumbGPU(_PluginBase):
+
+class FFmpegThumb(_PluginBase):
     # 插件名称
-    plugin_name = "FFmpeg缩略图支持GPU"
+    plugin_name = "FFmpeg缩略图"
     # 插件描述
     plugin_desc = "TheMovieDb没有背景图片时使用FFmpeg截取视频文件缩略图。"
     # 插件图标
@@ -29,11 +30,11 @@ class FFmpegThumbGPU(_PluginBase):
     # 插件版本
     plugin_version = "1.2"
     # 插件作者
-    plugin_author = "NevermoreN"
+    plugin_author = "jxxghp"
     # 作者主页
-    author_url = "https://github.com/NevermoreN"
+    author_url = "https://github.com/jxxghp"
     # 插件配置项ID前缀
-    plugin_config_prefix = "ffmpegthumbgpu_"
+    plugin_config_prefix = "ffmpegthumb_"
     # 加载顺序
     plugin_order = 31
     # 可使用的用户级别
@@ -280,10 +281,10 @@ class FFmpegThumbGPU(_PluginBase):
             logger.info(f"FFmpeg缩略图处理文件：{file}")
             file_path = Path(file)
             if not file_path.exists():
-                logger.warning(f"{file_path} 不存在")
+                logger.warn(f"{file_path} 不存在")
                 continue
             if file_path.suffix not in settings.RMT_MEDIAEXT:
-                logger.warning(f"{file_path} 不是支持的视频文件")
+                logger.warn(f"{file_path} 不是支持的视频文件")
                 continue
             self.gen_file_thumb(file_path)
 
@@ -318,7 +319,7 @@ class FFmpegThumbGPU(_PluginBase):
                             exclude_flag = True
                             break
                     except Exception as err:
-                        logger.error(str(err))
+                        print(str(err))
                 if exclude_flag:
                     logger.debug(f"{file_path} 在排除目录中，跳过 ...")
                     continue
@@ -337,11 +338,9 @@ class FFmpegThumbGPU(_PluginBase):
                 if thumb_path.exists():
                     logger.info(f"缩略图已存在：{thumb_path}")
                     return
-                result = FfmpegHelper.get_thumb(video_path=str(file_path), image_path=str(thumb_path), frames=self._timeline)
-                if result:
+                if FfmpegHelper.get_thumb(video_path=str(file_path),
+                                          image_path=str(thumb_path), frames=self._timeline):
                     logger.info(f"{file_path} 缩略图已生成：{thumb_path}")
-                else:
-                    logger.error(f"未能生成缩略图：{file_path}")
             except Exception as err:
                 logger.error(f"FFmpeg处理文件 {file_path} 时发生错误：{str(err)}")
 
@@ -358,4 +357,4 @@ class FFmpegThumbGPU(_PluginBase):
                     self._event.clear()
                 self._scheduler = None
         except Exception as e:
-            logger.error(f"Error stopping service: {str(e)}")
+            print(str(e))
