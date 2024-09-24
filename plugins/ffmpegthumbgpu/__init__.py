@@ -20,7 +20,7 @@ from app.utils.system import SystemUtils
 ffmpeg_lock = threading.Lock()
 
 
-class FFmpegThumb(_PluginBase):
+class FFmpegThumbGPU(_PluginBase):
     # 插件名称
     plugin_name = "FFmpeg缩略图支持GPU"
     # 插件描述
