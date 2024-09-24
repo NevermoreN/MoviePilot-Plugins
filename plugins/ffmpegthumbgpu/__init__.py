@@ -19,7 +19,6 @@ from app.utils.system import SystemUtils
 
 ffmpeg_lock = threading.Lock()
 
-
 class FFmpegThumbGPU(_PluginBase):
     # 插件名称
     plugin_name = "FFmpeg缩略图支持GPU"
@@ -281,10 +280,10 @@ class FFmpegThumbGPU(_PluginBase):
             logger.info(f"FFmpeg缩略图处理文件：{file}")
             file_path = Path(file)
             if not file_path.exists():
-                logger.warn(f"{file_path} 不存在")
+                logger.warning(f"{file_path} 不存在")
                 continue
             if file_path.suffix not in settings.RMT_MEDIAEXT:
-                logger.warn(f"{file_path} 不是支持的视频文件")
+                logger.warning(f"{file_path} 不是支持的视频文件")
                 continue
             self.gen_file_thumb(file_path)
 
@@ -319,7 +318,7 @@ class FFmpegThumbGPU(_PluginBase):
                             exclude_flag = True
                             break
                     except Exception as err:
-                        print(str(err))
+                        logger.error(str(err))
                 if exclude_flag:
                     logger.debug(f"{file_path} 在排除目录中，跳过 ...")
                     continue
@@ -338,9 +337,11 @@ class FFmpegThumbGPU(_PluginBase):
                 if thumb_path.exists():
                     logger.info(f"缩略图已存在：{thumb_path}")
                     return
-                if FfmpegHelper.get_thumb(video_path=str(file_path),
-                                          image_path=str(thumb_path), frames=self._timeline):
+                result = FfmpegHelper.get_thumb(video_path=str(file_path), image_path=str(thumb_path), frames=self._timeline)
+                if result:
                     logger.info(f"{file_path} 缩略图已生成：{thumb_path}")
+                else:
+                    logger.error(f"未能生成缩略图：{file_path}")
             except Exception as err:
                 logger.error(f"FFmpeg处理文件 {file_path} 时发生错误：{str(err)}")
 
@@ -357,4 +358,4 @@ class FFmpegThumbGPU(_PluginBase):
                     self._event.clear()
                 self._scheduler = None
         except Exception as e:
-            print(str(e))
+            logger.error(f"Error stopping service: {str(e)}")
