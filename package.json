@@ -9,4 +9,14 @@
         "level": 1,
         "v2": true
     }
+    "FFmpegThumbGPU": {
+        "name": "FFmpeg缩略图支持GPU",
+        "description": "TheMovieDb没有背景图片时使用FFmpeg截取视频文件缩略图",
+        "labels": "刮削",
+        "version": "1.5",
+        "icon": "ffmpeg.png",
+        "author": "NevermoreN",
+        "level": 1,
+        "v2": true
+    }
 }
