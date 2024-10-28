@@ -25,7 +25,7 @@ from app.utils.string import StringUtils
 cache = Cache()
 
 
-class NewEmbyReporterr(_PluginBase):
+class NewEmbyReporter(_PluginBase):
     # 插件名称
     plugin_name = "可选目录观影报告"
     # 插件描述
@@ -33,13 +33,13 @@ class NewEmbyReporterr(_PluginBase):
     # 插件图标
     plugin_icon = "Pydiocells_A.png"
     # 插件版本
-    plugin_version = "1.0.0"
+    plugin_version = "1.0"
     # 插件作者
-    plugin_author = "thsrite"
+    plugin_author = "Kevin P"
     # 作者主页
     author_url = "https://github.com/NevermoreN"
     # 插件配置项ID前缀
-    plugin_config_prefix = "newembyreporterr_"
+    plugin_config_prefix = "newembyreporter_"
     # 加载顺序
     plugin_order = 30
     # 可使用的用户级别
