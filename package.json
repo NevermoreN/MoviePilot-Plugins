@@ -11,11 +11,11 @@
     }
     "EmbyReporterr": {
         "name": "Emby观影报告(可选目录版本)",
-        "description": "一些不方便加入报告的东西可以用这个版本",
-        "labels": "刮削",
-        "version": "1.5",
-        "icon": "ffmpeg.png",
-        "author": "NevermoreN",
+        "description": "一些不方便加入报告的东西可以用这个版本-Kevin P",
+        "labels": "Emby",
+        "version": "1.0",
+        "icon": "Pydiocells_A.png",
+        "author": "Kevin P",
         "level": 1,
         "v2": true
     }
