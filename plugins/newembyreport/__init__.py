@@ -25,7 +25,7 @@ from app.utils.string import StringUtils
 cache = Cache()
 
 
-class EmbyReporterr(_PluginBase):
+class NewEmbyReporterr(_PluginBase):
     # 插件名称
     plugin_name = "可选目录观影报告"
     # 插件描述
@@ -39,7 +39,7 @@ class EmbyReporterr(_PluginBase):
     # 作者主页
     author_url = "https://github.com/NevermoreN"
     # 插件配置项ID前缀
-    plugin_config_prefix = "embyreporterr_"
+    plugin_config_prefix = "newembyreporterr_"
     # 加载顺序
     plugin_order = 30
     # 可使用的用户级别
