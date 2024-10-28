@@ -27,7 +27,7 @@ cache = Cache()
 
 class EmbyReporterr(_PluginBase):
     # 插件名称
-    plugin_name = "观影报告"
+    plugin_name = "可选目录观影报告"
     # 插件描述
     plugin_desc = "推送Emby观影报告，需Emby安装Playback Report 插件。"
     # 插件图标
@@ -37,7 +37,7 @@ class EmbyReporterr(_PluginBase):
     # 插件作者
     plugin_author = "thsrite"
     # 作者主页
-    author_url = "https://github.com/thsrite"
+    author_url = "https://github.com/NevermoreN"
     # 插件配置项ID前缀
     plugin_config_prefix = "embyreporterr_"
     # 加载顺序
@@ -487,7 +487,7 @@ class EmbyReporterr(_PluginBase):
                                         'component': 'VTextField',
                                         'props': {
                                             'model': 'emby_xjj_path',
-                                            'label': '屏蔽emby小姐姐库,目录前缀'
+                                            'label': '屏蔽emby小姐姐库,目录前缀,需要映射对应目录'
                                         }
                                     }
                                 ]
