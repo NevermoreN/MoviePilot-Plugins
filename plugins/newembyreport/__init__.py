@@ -487,7 +487,7 @@ class NewEmbyReport(_PluginBase):
                                         'component': 'VTextField',
                                         'props': {
                                             'model': 'emby_xjj_path',
-                                            'label': '屏蔽emby小姐姐库,目录前缀,需要映射对应目录'
+                                            'label': '屏蔽emby小姐姐库,给与emby的目录,多个目录食用,隔开,'
                                         }
                                     }
                                 ]
