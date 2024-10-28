@@ -9,9 +9,9 @@
         "level": 1,
         "v2": true
     }
-    "FFmpegThumbGPU": {
-        "name": "FFmpeg缩略图支持GPU",
-        "description": "TheMovieDb没有背景图片时使用FFmpeg截取视频文件缩略图",
+    "EmbyReporterr": {
+        "name": "Emby观影报告(可选目录版本)",
+        "description": "一些不方便加入报告的东西可以用这个版本",
         "labels": "刮削",
         "version": "1.5",
         "icon": "ffmpeg.png",
