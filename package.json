@@ -11,7 +11,7 @@
     },
     "NewEmbyReporter": {
         "name": "Emby观影报告(可选目录版本)",
-        "description": "一些不方便加入报告的东西可以用这个版本-Kevin P",
+        "description": "一些不方便加入报告的东西可以用这个版本",
         "labels": "Emby",
         "version": "1.0",
         "icon": "Pydiocells_A.png",
